@@ -15,13 +15,13 @@ import java.lang.reflect.Modifier
 object LogUtils {
     fun log(any: Any?) {
         val str = any.toString()
-        XposedBridge.log("CimZzz: $str")
+//        XposedBridge.log("CimZzz: $str")
         Log.v("CimZzz", str)
     }
 
     fun logDetail(any: Any?) {
         val str = any.toString()
-        XposedBridge.log("Detail: $str")
+//        XposedBridge.log("Detail: $str")
         Log.v("DETAIL", str)
     }
 

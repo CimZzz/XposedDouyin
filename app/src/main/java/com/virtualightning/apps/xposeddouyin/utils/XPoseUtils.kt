@@ -90,7 +90,16 @@ object XPosedUtils {
         }
 
         fun hookMethod(methodName: String, typeArr: Array<Any>, hookCallback: XC_MethodHook? = null): SimpleHookHelper {
-            XposedHelpers.findAndHookMethod(clsName, clsLoader, methodName, *typeArr, hookCallback?:SIMPLE_HOOK_CALL_BACK("$clsName $methodName"))
+            try {
+                XposedHelpers.findAndHookMethod(
+                    clsName,
+                    clsLoader,
+                    methodName,
+                    *typeArr,
+                    hookCallback ?: SIMPLE_HOOK_CALL_BACK("$clsName $methodName")
+                )
+            }
+            catch(e: Exception){}
             return this
         }
 
